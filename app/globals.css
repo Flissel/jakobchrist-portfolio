@@ -156,36 +156,73 @@ button { font: inherit; cursor: pointer; background: none; border: 0; color: inh
     radial-gradient(ellipse at 10% 90%, rgba(26, 24, 20, 0.05), transparent 60%);
 }
 
-/* ============ Hero Skyline (Live-Pencil-Sketch) ============ */
+/* ============ Hero Skyline (Architekten-Skizze) ============ */
 .skyline {
   position: absolute;
   left: 0; right: 0; bottom: 4%;
-  height: 18%;
+  height: 22%;
   z-index: -1;
   pointer-events: none;
   color: var(--ink);
-  opacity: .32;
+  opacity: .55;
   display: flex;
   justify-content: center;
   align-items: flex-end;
 }
 .skyline svg {
-  width: min(1280px, 96%);
+  width: min(1300px, 96%);
   height: 100%;
   display: block;
   overflow: visible;
 }
-.skyline__line {
+
+/* Konstruktions-Grid: zart und etwas später eingeblendet */
+.skyline__grid line {
+  opacity: 0;
+  animation: skyline-fade .9s ease-out .2s forwards;
+}
+.skyline__grid line { color: var(--ink-mute); }
+@keyframes skyline-fade { to { opacity: .35; } }
+
+/* Bodenlinie + Objekte: jede Linie zeichnet sich selbst */
+.skyline__line,
+.skyline__el path,
+.skyline__el line,
+.skyline__el circle {
   stroke-dasharray: 1;
   stroke-dashoffset: 1;
-  animation: skyline-draw 4.5s cubic-bezier(0.45, 0, 0.2, 1) 0.4s forwards;
+  animation: skyline-draw var(--t, 0.8s) cubic-bezier(0.45, 0, 0.2, 1) var(--d, 0s) forwards;
 }
+.skyline__el {
+  /* Vererbt --d/--t per inline style auf alle child-Linien */
+}
+.skyline__el path,
+.skyline__el line,
+.skyline__el circle {
+  animation-delay: var(--d, 0s);
+  animation-duration: var(--t, 0.8s);
+}
+
 @keyframes skyline-draw {
   to { stroke-dashoffset: 0; }
 }
 
+/* Dot-Markierungen erscheinen hart (kein Strich-Reveal nötig) */
+.skyline__dot {
+  opacity: 0;
+  animation: skyline-pop .35s ease-out forwards;
+  animation-delay: 4.2s;
+  stroke-dasharray: none;
+  stroke-dashoffset: 0;
+}
+.skyline__dot--end { animation-delay: 4.4s; }
+@keyframes skyline-pop {
+  from { opacity: 0; transform: scale(0); }
+  to { opacity: 1; transform: scale(1); }
+}
+
 @media (max-width: 700px) {
-  .skyline { bottom: 3%; height: 14%; opacity: .28; }
+  .skyline { bottom: 3%; height: 18%; opacity: .5; }
 }
 
 .hero__meta {
