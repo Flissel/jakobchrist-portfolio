@@ -1,6 +1,10 @@
+import { MunichSkyline } from './MunichSkyline';
+
 export function Hero() {
   return (
     <section className="hero" id="top">
+      <MunichSkyline />
+
       <div className="hero__meta">
         <span>München</span>
         <span aria-hidden="true">·</span>
