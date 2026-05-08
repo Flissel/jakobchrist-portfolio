@@ -33,21 +33,27 @@ async function process(srcName, outName, opts = {}) {
   console.log(`  → ${outName}: ${finalMeta.width}x${finalMeta.height}, ${(buffer.length / 1024).toFixed(0)} KB`);
 }
 
-// Entwurf — kleiner Detail-Sketch aus dem oberen Bereich von Bild 1
+// Entwurf — Detail-Sketch + Schwung aus Bild 1, mittig-oben.
+// 4:3-Ausschnitt, damit das Bild dieselbe Aspect-Ratio bekommt wie die
+// anderen beiden Pfeiler-Bilder.
 const img1 = await readFile(`${DOWNLOADS}\\ChatGPT Image May 8, 2026, 02_36_48 PM (1).png`);
 const m1 = await sharp(img1).metadata();
-await process(
-  'ChatGPT Image May 8, 2026, 02_36_48 PM (1).png',
-  'entwurf.jpg',
-  {
-    extract: {
-      left: Math.round(m1.width * 0.18),
-      top: Math.round(m1.height * 0.05),
-      width: Math.round(m1.width * 0.42),
-      height: Math.round(m1.height * 0.45),
-    },
-  }
-);
+{
+  const w = Math.round(m1.width * 0.62);
+  const h = Math.round(w * 0.75); // 4:3
+  await process(
+    'ChatGPT Image May 8, 2026, 02_36_48 PM (1).png',
+    'entwurf.jpg',
+    {
+      extract: {
+        left: Math.round(m1.width * 0.10),
+        top: Math.round(m1.height * 0.04),
+        width: w,
+        height: h,
+      },
+    }
+  );
+}
 
 // Technik — Brücke / Tragwerk
 await process('ChatGPT Image May 8, 2026, 02_36_48 PM (2).png', 'technik.jpg');
