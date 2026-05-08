@@ -29,10 +29,10 @@ export function About() {
           <Image
             src="/images/profile.jpg"
             alt="Jakob Christ"
-            width={1200}
-            height={800}
-            sizes="(min-width: 900px) 30vw, 90vw"
-            priority={false}
+            fill
+            sizes="(min-width: 1200px) 420px, (min-width: 900px) 35vw, 90vw"
+            priority
+            style={{ objectFit: 'cover', objectPosition: 'center 30%' }}
           />
         </figure>
 

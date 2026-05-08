@@ -39,6 +39,20 @@ button { font: inherit; cursor: pointer; background: none; border: 0; color: inh
 
 ::selection { background: var(--ink); color: var(--bg); }
 
+/* ============ Focus rings (Accessibility) ============ */
+:focus { outline: none; }
+:focus-visible {
+  outline: 2px solid var(--accent);
+  outline-offset: 3px;
+  border-radius: 3px;
+}
+.btn:focus-visible,
+.filter:focus-visible,
+.tl-link:focus-visible,
+.brand:focus-visible {
+  outline-offset: 4px;
+}
+
 .skip-link {
   position: absolute; top: -40px; left: 1rem; z-index: 100;
   background: var(--ink); color: var(--bg); padding: .5rem 1rem;
@@ -725,11 +739,48 @@ button { font: inherit; cursor: pointer; background: none; border: 0; color: inh
 @media (max-width: 800px) {
   .nav { display: none; }
   .nav-toggle { display: flex; }
+  .site-header { padding: .85rem var(--gutter); }
+  .site-header.is-scrolled { padding: .65rem var(--gutter); }
+
   .hero__title .line.italic { margin-left: 1rem; }
   .hero__lede { margin-left: 0; }
+
   .about__facts > div,
   .contact__info > div,
   .detail__facts > div { grid-template-columns: 1fr; gap: .25rem; }
+
+  /* Portrait-Bild begrenzen, sonst wird es auf einer 1-Spalten-Stack zu groß */
+  .about__portrait {
+    max-width: 320px;
+    width: 100%;
+    margin-inline: auto;
+  }
+
+  /* Filter-Pills kompakter */
+  .filters {
+    gap: .35rem;
+    padding-bottom: 1.25rem;
+  }
+  .filter {
+    padding: .45rem .85rem;
+    font-size: .72rem;
+    letter-spacing: .12em;
+  }
+
+  /* Section-Padding reduzieren */
+  .section { padding: clamp(3.5rem, 9vh, 6rem) var(--gutter); }
+
+  /* Detail-Hero auf Mobile etwas höher */
+  .detail__hero { aspect-ratio: 4 / 3; }
+
+  /* Contact-CTAs voll ausgebreitet */
+  .contact__cta { gap: .65rem; }
+  .btn { padding: 1rem 1.2rem; font-size: .78rem; }
+}
+
+@media (max-width: 480px) {
+  .hero__title .line.italic { margin-left: .5rem; }
+  .timeline-list { --tl-circle: clamp(160px, 60vw, 240px); }
 }
 
 @media (prefers-reduced-motion: reduce) {

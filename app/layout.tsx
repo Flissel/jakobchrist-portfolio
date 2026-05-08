@@ -17,20 +17,58 @@ const inter = Inter({
   display: 'swap',
 });
 
+const SITE_URL = process.env.NEXT_PUBLIC_SITE_URL ?? 'https://jakobchrist-portfolio.vercel.app';
+
 export const metadata: Metadata = {
-  metadataBase: new URL('https://www.jakobchrist.com'),
+  metadataBase: new URL(SITE_URL),
   title: {
     default: 'Jakob Christ — Architekt · München',
     template: '%s — Jakob Christ',
   },
   description:
-    'Jakob Christ — Architekt aus München. Ein ganzheitlicher Ansatz, der Entwurf, Technik und Gestaltung zu einem schlüssigen Gesamtbild verbindet.',
+    'Jakob Christ — Architekt aus München. Ein ganzheitlicher Ansatz, der Entwurf, Technik und Gestaltung zu einem schlüssigen Gesamtbild verbindet. Werkverzeichnis von HENN-Großprojekten bis zu Hochschularbeiten.',
+  applicationName: 'Jakob Christ — Portfolio',
+  authors: [{ name: 'Jakob Christ' }],
+  creator: 'Jakob Christ',
+  publisher: 'Jakob Christ',
+  keywords: [
+    'Architekt München',
+    'HENN',
+    'Architekturbüro',
+    'Hochbau',
+    'Computational Design',
+    'Revitalisierung',
+    'Jakob Christ',
+    'Portfolio',
+    'Werkverzeichnis',
+  ],
+  alternates: {
+    canonical: '/',
+  },
   openGraph: {
     title: 'Jakob Christ — Architekt · München',
     description:
       'Werkverzeichnis und Portfolio. Bauen als Verbindung von Entwurf, Technik und Gestaltung.',
     type: 'website',
     locale: 'de_DE',
+    siteName: 'Jakob Christ — Architekt',
+    url: SITE_URL,
+  },
+  twitter: {
+    card: 'summary_large_image',
+    title: 'Jakob Christ — Architekt · München',
+    description:
+      'Werkverzeichnis und Portfolio. Bauen als Verbindung von Entwurf, Technik und Gestaltung.',
+  },
+  robots: {
+    index: true,
+    follow: true,
+    googleBot: {
+      index: true,
+      follow: true,
+      'max-image-preview': 'large',
+      'max-snippet': -1,
+    },
   },
 };
 
