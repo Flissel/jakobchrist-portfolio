@@ -159,8 +159,8 @@ button { font: inherit; cursor: pointer; background: none; border: 0; color: inh
 /* ============ Hero Skyline (Hand-Sketch) ============ */
 .skyline {
   position: absolute;
-  left: 0; right: 0; bottom: 3%;
-  height: 38%;
+  left: 0; right: 0; bottom: 5%;
+  height: 16%;
   z-index: -1;
   pointer-events: none;
   display: flex;
@@ -179,7 +179,7 @@ button { font: inherit; cursor: pointer; background: none; border: 0; color: inh
 }
 
 @media (max-width: 700px) {
-  .skyline { bottom: 2%; height: 28%; }
+  .skyline { bottom: 4%; height: 12%; }
 }
 
 .hero__meta {
