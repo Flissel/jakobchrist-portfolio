@@ -159,31 +159,33 @@ button { font: inherit; cursor: pointer; background: none; border: 0; color: inh
 /* ============ Hero Skyline (Live-Pencil-Sketch) ============ */
 .skyline {
   position: absolute;
-  left: 0; right: 0; bottom: 8%;
-  height: 46%;
+  left: 0; right: 0; bottom: 4%;
+  height: 18%;
   z-index: -1;
   pointer-events: none;
   color: var(--ink);
-  opacity: .22;
+  opacity: .32;
   display: flex;
   justify-content: center;
+  align-items: flex-end;
 }
 .skyline svg {
-  width: min(1200px, 92%);
+  width: min(1280px, 96%);
   height: 100%;
   display: block;
+  overflow: visible;
 }
 .skyline__line {
   stroke-dasharray: 1;
   stroke-dashoffset: 1;
-  animation: skyline-draw 5s cubic-bezier(0.45, 0, 0.2, 1) 0.5s forwards;
+  animation: skyline-draw 4.5s cubic-bezier(0.45, 0, 0.2, 1) 0.4s forwards;
 }
 @keyframes skyline-draw {
   to { stroke-dashoffset: 0; }
 }
 
 @media (max-width: 700px) {
-  .skyline { bottom: 4%; height: 36%; opacity: .18; }
+  .skyline { bottom: 3%; height: 14%; opacity: .28; }
 }
 
 .hero__meta {
