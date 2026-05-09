@@ -156,35 +156,44 @@ button { font: inherit; cursor: pointer; background: none; border: 0; color: inh
     radial-gradient(ellipse at 10% 90%, rgba(26, 24, 20, 0.05), transparent 60%);
 }
 
-/* ============ Hero Skyline (Hand-Sketch, alpha-maskiert) ============ */
-.skyline {
+/* ============ Hero Artwork (Turm rechts neben Name) ============ */
+.hero-art {
   position: absolute;
-  left: 0; right: 0; bottom: 5%;
-  z-index: -1;
+  right: clamp(1rem, 4vw, 4rem);
+  top: 50%;
+  transform: translateY(-50%);
+  width: clamp(280px, 38%, 600px);
+  z-index: 0;
   pointer-events: none;
-  display: flex;
-  justify-content: center;
-  align-items: flex-end;
   opacity: 0;
-  animation: skyline-fadein 1.6s cubic-bezier(0.4, 0, 0.2, 1) 0.4s forwards;
+  animation: hero-art-fade 1.6s cubic-bezier(0.4, 0, 0.2, 1) 0.5s forwards;
 }
-.skyline__image {
-  width: min(1320px, 94vw);
+.hero-art img {
+  width: 100%;
   height: auto;
   display: block;
-  /* Linien selbst sind dunkel-grau; multiply darüber lässt die Anti-Alias-
-     Übergänge der Pencil-Kanten warm in den Site-Hintergrund laufen. */
   mix-blend-mode: multiply;
-  opacity: .85;
+  opacity: .9;
 }
 
-@keyframes skyline-fadein {
-  from { opacity: 0; transform: translateY(8px); }
-  to { opacity: 1; transform: translateY(0); }
+@keyframes hero-art-fade {
+  from { opacity: 0; transform: translate(12px, -50%); }
+  to { opacity: .95; transform: translate(0, -50%); }
 }
 
-@media (max-width: 700px) {
-  .skyline { bottom: 4%; }
+@media (max-width: 800px) {
+  /* Auf Mobile darunter rutschen, kleiner */
+  .hero-art {
+    position: relative;
+    right: auto; top: auto;
+    transform: none;
+    width: 60%;
+    margin: 1rem auto 0;
+  }
+  @keyframes hero-art-fade {
+    from { opacity: 0; transform: translateY(8px); }
+    to { opacity: .95; transform: translateY(0); }
+  }
 }
 
 .hero__meta {
