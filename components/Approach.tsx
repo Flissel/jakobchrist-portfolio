@@ -7,21 +7,21 @@ const PILLARS = [
     title: 'Entwurf',
     body:
       'Ein Gebäude beginnt mit einer klaren Idee — Ort, Programm und Atmosphäre werden in eine räumliche Logik überführt, die trägt, ohne sich aufzudrängen.',
-    image: '/images/approach/entwurf.jpg',
+    image: '/images/approach/entwurf.png',
   },
   {
     num: 'II',
     title: 'Technik',
     body:
       'Konstruktion, Tragwerk und Klima sind keine Nachträge zur Gestaltung, sondern ihr Rückgrat. Computational Design erweitert die Werkzeuge, nicht die Komplexität.',
-    image: '/images/approach/technik.jpg',
+    image: '/images/approach/technik.png',
   },
   {
     num: 'III',
     title: 'Gestaltung',
     body:
       'Material, Maß und Detail schließen den Kreis. Erst hier entsteht das, woran man ein Haus erkennt: Haltung.',
-    image: '/images/approach/gestaltung.jpg',
+    image: '/images/approach/gestaltung.png',
   },
 ];
 

@@ -353,9 +353,6 @@ button { font: inherit; cursor: pointer; background: none; border: 0; color: inh
      identisch hoch/breit sind, egal welche Quell-Auflösung. */
   aspect-ratio: 4 / 3;
   overflow: hidden;
-  /* Multiply blendet den cremefarbenen Bildhintergrund unsichtbar mit
-     unserer Site-Hintergrundfarbe. */
-  mix-blend-mode: multiply;
   opacity: .92;
 }
 .pillar__image img {
