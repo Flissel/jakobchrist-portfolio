@@ -11,10 +11,10 @@ export function MunichSkyline() {
       <Image
         src="/images/hero-tower.png"
         alt=""
-        width={970}
+        width={811}
         height={843}
         priority
-        sizes="(min-width: 1200px) 540px, (min-width: 800px) 42vw, 60vw"
+        sizes="(min-width: 1200px) 480px, (min-width: 800px) 36vw, 55vw"
       />
     </div>
   );
