@@ -159,11 +159,12 @@ button { font: inherit; cursor: pointer; background: none; border: 0; color: inh
 /* ============ Hero Artwork (Turm rechts neben Name) ============ */
 .hero-art {
   position: absolute;
-  right: clamp(1rem, 4vw, 4rem);
+  right: clamp(0.5rem, 2vw, 2.5rem);
   top: 50%;
   transform: translateY(-50%);
-  width: clamp(280px, 38%, 600px);
-  z-index: 0;
+  width: clamp(260px, 34%, 540px);
+  /* Hinter Titel + Untertitel → kein Konflikt mit der Typografie. */
+  z-index: -1;
   pointer-events: none;
   opacity: 0;
   animation: hero-art-fade 1.6s cubic-bezier(0.4, 0, 0.2, 1) 0.5s forwards;
@@ -173,12 +174,19 @@ button { font: inherit; cursor: pointer; background: none; border: 0; color: inh
   height: auto;
   display: block;
   mix-blend-mode: multiply;
-  opacity: .9;
+  opacity: .85;
 }
 
 @keyframes hero-art-fade {
   from { opacity: 0; transform: translate(12px, -50%); }
-  to { opacity: .95; transform: translate(0, -50%); }
+  to { opacity: .92; transform: translate(0, -50%); }
+}
+
+/* Titel und Untertitel über dem Artwork */
+.hero__title,
+.hero__lede {
+  position: relative;
+  z-index: 1;
 }
 
 @media (max-width: 800px) {
@@ -189,10 +197,11 @@ button { font: inherit; cursor: pointer; background: none; border: 0; color: inh
     transform: none;
     width: 60%;
     margin: 1rem auto 0;
+    z-index: 0;
   }
   @keyframes hero-art-fade {
     from { opacity: 0; transform: translateY(8px); }
-    to { opacity: .95; transform: translateY(0); }
+    to { opacity: .92; transform: translateY(0); }
   }
 }
 
